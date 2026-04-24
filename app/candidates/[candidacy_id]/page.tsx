@@ -1,40 +1,22 @@
+"use client"
+
+import { useParams } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
-import { sampleCandidate } from "@/lib/candidate-data"
-import { getCandidateById } from "@/lib/queries"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ProfileBlock } from "@/components/candidate/profile-block"
-import { CandidateDetailTabs } from "@/components/candidate/detail-tabs"
+import { PledgesTab } from "@/components/candidate/pledges-tab"
+import { HistoryTab } from "@/components/candidate/history-tab"
+import { PdfTab } from "@/components/candidate/pdf-tab"
+import { CompareTab } from "@/components/candidate/compare-tab"
+import { sampleCandidate } from "@/lib/candidate-data"
 
-interface CandidatePageProps {
-  params: Promise<{
-    candidacy_id: string
-  }>
-}
-
-export const revalidate = 600
-
-async function loadCandidate(candidacyId: string) {
-  try {
-    const c = await getCandidateById(candidacyId)
-    if (c) return { data: c, source: "neon" as const }
-  } catch (err) {
-    console.error("[candidates] Neon 조회 실패, sample로 폴백:", err)
-  }
-  return { data: sampleCandidate, source: "sample" as const }
-}
-
-export async function generateMetadata({ params }: CandidatePageProps) {
-  const { candidacy_id } = await params
-  const { data } = await loadCandidate(candidacy_id)
-  return {
-    title: `${data.name} 후보 — ${data.position} · ${data.electionName}`,
-    description: `${data.electionName} ${data.position} 후보 ${data.name}의 공약과 이력을 확인하세요.`,
-  }
-}
-
-export default async function CandidatePage({ params }: CandidatePageProps) {
-  const { candidacy_id } = await params
-  const { data: candidate, source } = await loadCandidate(candidacy_id)
+export default function CandidatePage() {
+  const params = useParams()
+  const candidacyId = params.candidacy_id as string
+  
+  // In real app, would fetch candidate data based on candidacyId
+  const candidate = sampleCandidate
 
   return (
     <div className="min-h-screen bg-background">
@@ -51,10 +33,10 @@ export default async function CandidatePage({ params }: CandidatePageProps) {
             </Link>
             <span className="text-border">/</span>
             <Link
-              href="/elections/0020220601"
+              href="/elections/local-2026"
               className="text-sm font-serif text-muted-foreground hover:text-foreground"
             >
-              {candidate.electionName}
+              제9회 전국동시지방선거
             </Link>
           </nav>
         </div>
@@ -63,24 +45,64 @@ export default async function CandidatePage({ params }: CandidatePageProps) {
       <main className="max-w-[1100px] mx-auto px-4 py-8">
         {/* Back link */}
         <Link
-          href="/elections/0020220601"
+          href="/elections/local-2026"
           className="inline-flex items-center gap-1.5 text-sm font-sans text-muted-foreground hover:text-foreground mb-8"
         >
           <ArrowLeft className="w-4 h-4" strokeWidth={1} />
           선거 페이지로 돌아가기
         </Link>
 
-        {source === "sample" && (
-          <div className="mb-6 border border-gray-200 bg-gray-50 px-4 py-3 text-xs font-serif text-gray-600 leading-relaxed">
-            이 페이지는 샘플 데이터로 표시되고 있습니다. 실제 Neon DB에 있는 후보자는 candidacies.id로 접근할 수 있습니다.
-          </div>
-        )}
-
         {/* Profile block */}
         <ProfileBlock candidate={candidate} />
 
         {/* Tabs */}
-        <CandidateDetailTabs candidate={candidate} />
+        <Tabs defaultValue="pledges" className="mt-8">
+          <TabsList 
+            className="bg-transparent rounded-none p-0 h-auto border-b border-border w-full justify-start gap-0"
+            aria-label="후보자 정보 탭"
+          >
+            <TabsTrigger
+              value="pledges"
+              className="rounded-none border-0 border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-3 font-sans text-sm"
+            >
+              공약
+            </TabsTrigger>
+            <TabsTrigger
+              value="history"
+              className="rounded-none border-0 border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-3 font-sans text-sm"
+            >
+              이력
+            </TabsTrigger>
+            <TabsTrigger
+              value="pdf"
+              className="rounded-none border-0 border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-3 font-sans text-sm"
+            >
+              공보 PDF
+            </TabsTrigger>
+            <TabsTrigger
+              value="compare"
+              className="rounded-none border-0 border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-3 font-sans text-sm"
+            >
+              비교
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="pledges" className="mt-8">
+            <PledgesTab candidate={candidate} />
+          </TabsContent>
+
+          <TabsContent value="history" className="mt-8">
+            <HistoryTab candidate={candidate} />
+          </TabsContent>
+
+          <TabsContent value="pdf" className="mt-8">
+            <PdfTab candidate={candidate} />
+          </TabsContent>
+
+          <TabsContent value="compare" className="mt-8">
+            <CompareTab candidate={candidate} />
+          </TabsContent>
+        </Tabs>
       </main>
 
       {/* Sticky footer note */}
