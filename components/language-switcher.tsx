@@ -1,7 +1,8 @@
 "use client"
 
-import { useRouter, usePathname } from "next/navigation"
-import { locales, localeNames, type Locale } from "@/lib/i18n/config"
+import { useRouter } from "next/navigation"
+import { useTransition } from "react"
+import { locales, localeNames, LOCALE_COOKIE, type Locale } from "@/lib/i18n/config"
 import { Globe } from "lucide-react"
 
 interface Props {
@@ -13,23 +14,20 @@ interface Props {
 
 export function LanguageSwitcher({ current, ariaLabel }: Props) {
   const router = useRouter()
-  const pathname = usePathname()
+  const [isPending, startTransition] = useTransition()
 
   function handleChange(next: Locale) {
     if (next === current) return
 
-    // 현재 경로가 /ko/..., /en/... 형태면 첫 세그먼트 교체
-    const parts = pathname.split("/")
-    if (parts[1] && (locales as readonly string[]).includes(parts[1])) {
-      parts[1] = next
-    } else {
-      parts.splice(1, 0, next)
-    }
-    const nextPath = parts.join("/") || "/"
+    // 쿠키 기반 locale routing — Path는 그대로 두고 쿠키만 갱신 후 새로고침.
+    // (app router에 [locale] 세그먼트가 없으므로 path-prefix 이동은 404가 난다.)
+    document.cookie =
+      `${LOCALE_COOKIE}=${next}; path=/; max-age=${60 * 60 * 24 * 365}; samesite=lax`
 
-    // 쿠키에도 저장 (middleware가 사용)
-    document.cookie = `promise999_locale=${next}; path=/; max-age=${60 * 60 * 24 * 365}`
-    router.push(nextPath)
+    startTransition(() => {
+      // RSC를 다시 렌더해 cookies()에서 새 locale 읽기
+      router.refresh()
+    })
   }
 
   return (
@@ -43,7 +41,8 @@ export function LanguageSwitcher({ current, ariaLabel }: Props) {
         aria-label={ariaLabel}
         value={current}
         onChange={(e) => handleChange(e.target.value as Locale)}
-        className="bg-transparent text-xs font-mono outline-none cursor-pointer"
+        disabled={isPending}
+        className="bg-transparent text-xs font-mono outline-none cursor-pointer disabled:opacity-50"
       >
         {locales.map((loc) => (
           <option key={loc} value={loc}>

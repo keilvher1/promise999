@@ -48,6 +48,14 @@ export function LandingHeader() {
                   {t("nav.terms")}
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/forum"
+                  className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {t("nav.forum")}
+                </Link>
+              </li>
             </ul>
 
             <LanguageSwitcher

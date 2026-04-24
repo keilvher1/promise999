@@ -14,7 +14,8 @@
     "about": "소개",
     "back_to_elections": "선거 목록으로 돌아가기",
     "back_to_election": "선거 페이지로 돌아가기",
-    "breadcrumb_separator": "/"
+    "breadcrumb_separator": "/",
+    "forum": "토론장"
   },
   "language_switcher": {
     "label": "언어",
@@ -125,5 +126,16 @@
     "search_button": "검색",
     "no_results": "\"{{q}}\" 검색 결과가 없습니다.",
     "has_pledges": "공약 {{n}}건"
+  },
+  "forum": {
+    "title": "익명 토론장",
+    "subtitle": "공약과 후보에 대해 자유롭게 의견을 나누세요. 닉네임은 자동 생성됩니다.",
+    "new_post": "새 글 작성",
+    "new_post_title_ph": "제목",
+    "new_post_body_ph": "본문 (2~8000자)",
+    "submit": "작성",
+    "no_threads": "아직 글이 없습니다. 첫 번째 글을 작성해보세요.",
+    "replies": "댓글",
+    "just_now": "방금"
   }
 }

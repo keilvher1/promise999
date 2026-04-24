@@ -14,7 +14,8 @@
     "about": "关于",
     "back_to_elections": "返回选举列表",
     "back_to_election": "返回选举页面",
-    "breadcrumb_separator": "/"
+    "breadcrumb_separator": "/",
+    "forum": "讨论区"
   },
   "language_switcher": {
     "label": "语言",
@@ -125,5 +126,16 @@
     "search_button": "搜索",
     "no_results": "未找到与 \"{{q}}\" 匹配的结果。",
     "has_pledges": "公约 {{n}} 条"
+  },
+  "forum": {
+    "title": "匿名讨论区",
+    "subtitle": "自由讨论政见与候选人。昵称将自动生成。",
+    "new_post": "发布新帖",
+    "new_post_title_ph": "标题",
+    "new_post_body_ph": "正文 (2-8000字)",
+    "submit": "发布",
+    "no_threads": "还没有帖子,快来发表第一条吧。",
+    "replies": "评论",
+    "just_now": "刚刚"
   }
 }

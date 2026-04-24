@@ -14,7 +14,8 @@
     "about": "About",
     "back_to_elections": "Back to elections",
     "back_to_election": "Back to election",
-    "breadcrumb_separator": "/"
+    "breadcrumb_separator": "/",
+    "forum": "Forum"
   },
   "language_switcher": {
     "label": "Language",
@@ -125,5 +126,16 @@
     "search_button": "Search",
     "no_results": "No results for \"{{q}}\".",
     "has_pledges": "{{n}} pledges"
+  },
+  "forum": {
+    "title": "Anonymous Forum",
+    "subtitle": "Discuss pledges and candidates anonymously. Nicknames are auto-generated.",
+    "new_post": "New post",
+    "new_post_title_ph": "Title",
+    "new_post_body_ph": "Body (2-8000 chars)",
+    "submit": "Post",
+    "no_threads": "No threads yet. Be the first to post.",
+    "replies": "replies",
+    "just_now": "just now"
   }
 }

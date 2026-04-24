@@ -14,7 +14,8 @@
     "about": "このサイトについて",
     "back_to_elections": "選挙一覧に戻る",
     "back_to_election": "選挙ページに戻る",
-    "breadcrumb_separator": "/"
+    "breadcrumb_separator": "/",
+    "forum": "掲示板"
   },
   "language_switcher": {
     "label": "言語",
@@ -125,5 +126,16 @@
     "search_button": "検索",
     "no_results": "「{{q}}」に一致する結果がありません。",
     "has_pledges": "公約{{n}}件"
+  },
+  "forum": {
+    "title": "匿名掲示板",
+    "subtitle": "公約と候補者について自由に意見を交わしましょう。ニックネームは自動生成されます。",
+    "new_post": "新規投稿",
+    "new_post_title_ph": "タイトル",
+    "new_post_body_ph": "本文 (2~8000文字)",
+    "submit": "投稿",
+    "no_threads": "まだ投稿がありません。最初の投稿をしてみましょう。",
+    "replies": "コメント",
+    "just_now": "たった今"
   }
 }
