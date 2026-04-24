@@ -1,0 +1,135 @@
+"use client"
+
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import type { CandidateDetail, Pledge } from "@/lib/candidate-data"
+
+interface PledgesTabProps {
+  candidate: CandidateDetail
+}
+
+function PledgeCard({ pledge }: { pledge: Pledge }) {
+  return (
+    <article className="border border-border p-4 flex flex-col gap-2">
+      <div className="flex items-start justify-between gap-4">
+        <span className="font-mono text-sm text-muted-foreground">
+          {String(pledge.order).padStart(2, "0")}
+        </span>
+        <span className="px-2 py-0.5 text-xs font-mono border border-border text-muted-foreground bg-secondary">
+          {pledge.category}
+        </span>
+      </div>
+      <h4 className="font-sans font-medium tracking-tight text-base">
+        {pledge.title}
+      </h4>
+      <p className="text-sm font-serif text-muted-foreground leading-relaxed line-clamp-3">
+        {pledge.summary}
+      </p>
+      <Link
+        href={`/pledges/${pledge.id}`}
+        className="inline-flex items-center gap-1 text-sm font-sans text-foreground hover:underline mt-1 self-start"
+        aria-label={`${pledge.title} 원문 읽기`}
+      >
+        원문 읽기
+        <ArrowRight className="w-3 h-3" strokeWidth={1} />
+      </Link>
+    </article>
+  )
+}
+
+function DetailedPledgeItem({ pledge }: { pledge: Pledge }) {
+  return (
+    <div className="py-3 border-b border-border last:border-b-0">
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex-1">
+          <h5 className="font-sans font-medium text-sm tracking-tight">
+            {pledge.title}
+          </h5>
+          <p className="text-sm font-serif text-muted-foreground leading-relaxed mt-1">
+            {pledge.summary}
+          </p>
+        </div>
+        <Link
+          href={`/pledges/${pledge.id}`}
+          className="text-xs font-mono text-muted-foreground hover:text-foreground hover:underline whitespace-nowrap"
+          aria-label={`${pledge.title} 원문 읽기`}
+        >
+          원문
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+export function PledgesTab({ candidate }: PledgesTabProps) {
+  const categories = Object.keys(candidate.detailedPledges)
+
+  return (
+    <div className="flex flex-col gap-8">
+      {/* Disclaimer box */}
+      <div 
+        className="bg-secondary border border-border p-4"
+        role="note"
+        aria-label="공약 요약 안내"
+      >
+        <p className="text-sm font-serif text-muted-foreground leading-relaxed">
+          아래 공약 요약은 원문에서 기계적으로 추출·분류한 결과입니다. 평가·해석을 포함하지 않습니다.
+        </p>
+      </div>
+
+      {/* 핵심 공약 section */}
+      <section aria-labelledby="key-pledges-heading">
+        <h3 
+          id="key-pledges-heading" 
+          className="font-sans font-semibold tracking-tight text-lg mb-4"
+        >
+          핵심 공약
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {candidate.keyPledges.slice(0, 5).map((pledge) => (
+            <PledgeCard key={pledge.id} pledge={pledge} />
+          ))}
+        </div>
+      </section>
+
+      {/* 상세 공약 accordion */}
+      <section aria-labelledby="detailed-pledges-heading">
+        <h3 
+          id="detailed-pledges-heading" 
+          className="font-sans font-semibold tracking-tight text-lg mb-4"
+        >
+          상세 공약
+        </h3>
+        <Accordion type="multiple" className="border border-border">
+          {categories.map((category) => (
+            <AccordionItem key={category} value={category} className="border-border px-4">
+              <AccordionTrigger className="hover:no-underline py-4">
+                <div className="flex items-center gap-3">
+                  <span className="font-sans font-medium tracking-tight">
+                    {category}
+                  </span>
+                  <span className="text-xs font-mono text-muted-foreground">
+                    {candidate.detailedPledges[category].length}개
+                  </span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="pb-2">
+                  {candidate.detailedPledges[category].map((pledge) => (
+                    <DetailedPledgeItem key={pledge.id} pledge={pledge} />
+                  ))}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </section>
+    </div>
+  )
+}
