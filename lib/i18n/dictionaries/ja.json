@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "site_name": "promise999",
+    "tagline": "韓国選挙公約アーカイブ",
+    "description": "中央選挙管理委員会の公式資料に基づく、中立的な韓国選挙公約アーカイブ。"
+  },
+  "nav": {
+    "skip_to_content": "本文へスキップ",
+    "home": "ホーム",
+    "elections": "選挙",
+    "candidates": "候補者",
+    "compare": "公約比較",
+    "terms": "用語集",
+    "about": "このサイトについて",
+    "back_to_elections": "選挙一覧に戻る",
+    "back_to_election": "選挙ページに戻る",
+    "breadcrumb_separator": "/"
+  },
+  "language_switcher": {
+    "label": "言語",
+    "aria_label": "言語を選択"
+  },
+  "landing": {
+    "hero_title_1": "すべての選挙公約を、",
+    "hero_title_2": "一か所に。",
+    "hero_sub": "中央選挙管理委員会の原文に基づく、全国・歴代選挙公約の公共アーカイブ。",
+    "search_placeholder": "候補者・選挙区・政党で検索",
+    "find_my_district": "住所から選挙区を探す",
+    "principles_title": "3つの原則",
+    "principle_neutral_title": "中立",
+    "principle_neutral_body": "公約は原文のまま。AIは解釈ではなく要約と分類のみ行います。",
+    "principle_history_title": "履歴",
+    "principle_history_body": "同じ候補者の過去の公約まで併せて表示します。",
+    "principle_official_title": "公式",
+    "principle_official_body": "すべてのデータは中央選挙管理委員会の公式ソースに基づきます。",
+    "recent_title": "最近追加された公約",
+    "featured_cta": "投票用紙プレビュー",
+    "featured_election_label": "注目の選挙",
+    "candidates_count": "候補者{{count}}名",
+    "stat_elections": "収録選挙",
+    "stat_candidates": "候補者",
+    "stat_pledges": "公約セット",
+    "stat_pledge_items": "公約項目",
+    "stats_aria": "アーカイブ統計"
+  },
+  "election": {
+    "voters": "選挙人",
+    "candidates_total": "候補者",
+    "toggle_national": "全国",
+    "toggle_my_region": "地元",
+    "ballot_total_running": "{{count}}名出馬",
+    "view_pledges": "公約を見る",
+    "elected": "当選",
+    "defeated": "落選",
+    "withdrew": "辞退",
+    "running": "出馬中",
+    "turnout_at_a_glance": "選挙ひと目",
+    "turnout": "投票率",
+    "seat_changes": "主要政党の議席変化",
+    "pledge_scan_title": "公約スナップショット",
+    "ballot_types": {
+      "governor": "広域自治体長(特別市・広域市長・道知事)",
+      "education": "教育監",
+      "metro_proportional": "広域議会議員(比例代表)",
+      "metro_district": "広域議会議員(地域区)",
+      "district_head": "基礎自治体長(市・郡・区長)",
+      "basic_district": "基礎議会議員(地域区)",
+      "basic_proportional": "基礎議会議員(比例代表)"
+    }
+  },
+  "candidate": {
+    "tabs": {
+      "pledges": "公約",
+      "history": "履歴",
+      "pdf": "公報PDF",
+      "compare": "比較"
+    },
+    "profile": {
+      "birth_date": "生年月日",
+      "education": "学歴",
+      "occupation": "経歴",
+      "candidate_number": "{{n}}番",
+      "view_pdf": "公約書PDF原本",
+      "nec_link": "中央選挙管理委員会原本",
+      "share": "URLを共有"
+    },
+    "pledges": {
+      "key_pledges_title": "主要公約",
+      "detailed_pledges_title": "すべての公約",
+      "read_original": "原文を読む",
+      "disclaimer": "以下の要約は原文から機械的に抽出・分類した結果です。評価や解釈は含みません。"
+    },
+    "history": {
+      "continued": "維持された公約",
+      "changed": "変わった公約",
+      "dropped": "取り下げられた公約",
+      "added": "新たに加わった公約",
+      "before": "以前",
+      "after": "現在"
+    },
+    "vote_count": "得票数",
+    "vote_pct": "得票率"
+  },
+  "common": {
+    "sample_data_notice": "このページはサンプルデータで表示されています。",
+    "loading": "読み込み中…",
+    "no_data": "データがありません。",
+    "footer_source": "すべての公約原文は中央選挙管理委員会(policy.nec.go.kr)および公共データポータル(data.go.kr)を典拠としています。",
+    "footer_disclaimer": "本サービスは特定の政党・候補を支持または反対するものではありません。",
+    "translation_notice": "公約原文は韓国語で提出されたものです。翻訳は参考用です。"
+  },
+  "footer": {
+    "about": "概要",
+    "sources": "データソース",
+    "contact": "お問い合わせ"
+  },
+  "elections_list": {
+    "subtitle": "全{{count}}件の選挙",
+    "empty": "登録された選挙はありません。",
+    "sub_count": "下位{{count}}種",
+    "candidate_count": "候補者{{count}}名"
+  },
+  "candidates_list": {
+    "subtitle": "候補者検索",
+    "search_button": "検索",
+    "no_results": "「{{q}}」に一致する結果がありません。",
+    "has_pledges": "公約{{n}}件"
+  }
+}

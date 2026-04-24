@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "site_name": "promise999",
+    "tagline": "韩国选举公约档案",
+    "description": "基于韩国中央选举管理委员会官方资料的中立选举公约档案。"
+  },
+  "nav": {
+    "skip_to_content": "跳到正文",
+    "home": "首页",
+    "elections": "选举",
+    "candidates": "候选人",
+    "compare": "公约比较",
+    "terms": "术语",
+    "about": "关于",
+    "back_to_elections": "返回选举列表",
+    "back_to_election": "返回选举页面",
+    "breadcrumb_separator": "/"
+  },
+  "language_switcher": {
+    "label": "语言",
+    "aria_label": "选择语言"
+  },
+  "landing": {
+    "hero_title_1": "所有选举公约,",
+    "hero_title_2": "一站式查询。",
+    "hero_sub": "基于中央选举管理委员会原文,覆盖韩国历届与现行选举的公共公约档案。",
+    "search_placeholder": "按候选人、选区或政党搜索",
+    "find_my_district": "按地址查找我的选区",
+    "principles_title": "三项原则",
+    "principle_neutral_title": "中立",
+    "principle_neutral_body": "公约保持原文。AI 仅用于摘要和分类,不进行解读。",
+    "principle_history_title": "历史",
+    "principle_history_body": "同一候选人过往公约同步呈现。",
+    "principle_official_title": "官方",
+    "principle_official_body": "所有数据来自中央选举管理委员会官方数据源。",
+    "recent_title": "最近新增的公约",
+    "featured_cta": "预览我的选票",
+    "featured_election_label": "推荐选举",
+    "candidates_count": "候选人 {{count}} 名",
+    "stat_elections": "收录选举",
+    "stat_candidates": "候选人",
+    "stat_pledges": "公约组",
+    "stat_pledge_items": "公约条目",
+    "stats_aria": "档案统计"
+  },
+  "election": {
+    "voters": "选举人",
+    "candidates_total": "候选人",
+    "toggle_national": "全国",
+    "toggle_my_region": "我的地区",
+    "ballot_total_running": "共 {{count}} 人参选",
+    "view_pledges": "查看公约",
+    "elected": "当选",
+    "defeated": "落选",
+    "withdrew": "退出",
+    "running": "参选中",
+    "turnout_at_a_glance": "选举一览",
+    "turnout": "投票率",
+    "seat_changes": "主要政党议席变动",
+    "pledge_scan_title": "公约速览",
+    "ballot_types": {
+      "governor": "市 / 道知事",
+      "education": "教育监",
+      "metro_proportional": "广域议员(比例代表)",
+      "metro_district": "广域议员(选区)",
+      "district_head": "市 / 郡 / 区长",
+      "basic_district": "基层议员(选区)",
+      "basic_proportional": "基层议员(比例代表)"
+    }
+  },
+  "candidate": {
+    "tabs": {
+      "pledges": "公约",
+      "history": "履历",
+      "pdf": "选举公报 PDF",
+      "compare": "比较"
+    },
+    "profile": {
+      "birth_date": "出生日期",
+      "education": "学历",
+      "occupation": "履历",
+      "candidate_number": "{{n}}号",
+      "view_pdf": "公约原始 PDF",
+      "nec_link": "中央选举管理委员会原文",
+      "share": "分享链接"
+    },
+    "pledges": {
+      "key_pledges_title": "核心公约",
+      "detailed_pledges_title": "全部公约",
+      "read_original": "阅读原文",
+      "disclaimer": "以下摘要为从原文中机械提取并分类的结果,不含评价或解读。"
+    },
+    "history": {
+      "continued": "延续的公约",
+      "changed": "变更的公约",
+      "dropped": "取消的公约",
+      "added": "新增的公约",
+      "before": "之前",
+      "after": "之后"
+    },
+    "vote_count": "得票数",
+    "vote_pct": "得票率"
+  },
+  "common": {
+    "sample_data_notice": "此页面显示样例数据。",
+    "loading": "加载中…",
+    "no_data": "暂无数据。",
+    "footer_source": "所有公约原文均以中央选举管理委员会(policy.nec.go.kr)及公共数据门户(data.go.kr)为准。",
+    "footer_disclaimer": "本服务不支持或反对任何特定政党或候选人。",
+    "translation_notice": "公约原文以韩语提交。译文仅供参考。"
+  },
+  "footer": {
+    "about": "关于",
+    "sources": "数据来源",
+    "contact": "联系我们"
+  },
+  "elections_list": {
+    "subtitle": "共 {{count}} 次选举",
+    "empty": "尚无选举数据。",
+    "sub_count": "{{count}} 种子选举",
+    "candidate_count": "候选人 {{count}} 名"
+  },
+  "candidates_list": {
+    "subtitle": "候选人搜索",
+    "search_button": "搜索",
+    "no_results": "未找到与 \"{{q}}\" 匹配的结果。",
+    "has_pledges": "公约 {{n}} 条"
+  }
+}

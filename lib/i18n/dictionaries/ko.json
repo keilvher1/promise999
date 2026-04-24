@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "site_name": "promise999",
+    "tagline": "한국 선거 공약 아카이브",
+    "description": "중앙선거관리위원회 공식 자료를 기반으로 한 중립적 선거 공약 아카이브"
+  },
+  "nav": {
+    "skip_to_content": "본문으로 건너뛰기",
+    "home": "홈",
+    "elections": "선거",
+    "candidates": "후보자",
+    "compare": "공약 비교",
+    "terms": "용어 풀이",
+    "about": "소개",
+    "back_to_elections": "선거 목록으로 돌아가기",
+    "back_to_election": "선거 페이지로 돌아가기",
+    "breadcrumb_separator": "/"
+  },
+  "language_switcher": {
+    "label": "언어",
+    "aria_label": "언어 선택"
+  },
+  "landing": {
+    "hero_title_1": "모든 선거 공약을,",
+    "hero_title_2": "한곳에서.",
+    "hero_sub": "중앙선거관리위원회 원문을 기반으로 한, 전국·역대 선거의 공약을 비교할 수 있는 공공 아카이브.",
+    "search_placeholder": "후보자 이름, 선거구, 정당으로 검색",
+    "find_my_district": "주소로 내 선거구 찾기",
+    "principles_title": "이 서비스의 3가지 원칙",
+    "principle_neutral_title": "중립",
+    "principle_neutral_body": "공약 원문 그대로. AI는 해석이 아닌 요약·분류만.",
+    "principle_history_title": "이력",
+    "principle_history_body": "같은 후보의 과거 공약까지 함께 봅니다.",
+    "principle_official_title": "공식",
+    "principle_official_body": "모든 데이터는 중앙선관위 공식 소스.",
+    "recent_title": "최근 추가된 공약",
+    "featured_cta": "내 투표용지 미리보기",
+    "featured_election_label": "대표 선거",
+    "candidates_count": "후보 {{count}}명",
+    "stat_elections": "수록 선거",
+    "stat_candidates": "후보자",
+    "stat_pledges": "공약 묶음",
+    "stat_pledge_items": "공약 항목",
+    "stats_aria": "아카이브 통계"
+  },
+  "election": {
+    "voters": "선거인",
+    "candidates_total": "후보자",
+    "toggle_national": "전국",
+    "toggle_my_region": "내 지역",
+    "ballot_total_running": "총 {{count}}명 출마",
+    "view_pledges": "공약 보기",
+    "elected": "당선",
+    "defeated": "낙선",
+    "withdrew": "사퇴",
+    "running": "출마중",
+    "turnout_at_a_glance": "이 선거 한눈에 보기",
+    "turnout": "투표율",
+    "seat_changes": "주요 정당 의석 변화",
+    "pledge_scan_title": "공약 한줄 스캔",
+    "ballot_types": {
+      "governor": "시·도지사",
+      "education": "교육감",
+      "metro_proportional": "광역의원 비례대표",
+      "metro_district": "광역의원 지역구",
+      "district_head": "시·군·구청장",
+      "basic_district": "기초의원 지역구",
+      "basic_proportional": "기초의원 비례대표"
+    }
+  },
+  "candidate": {
+    "tabs": {
+      "pledges": "공약",
+      "history": "이력",
+      "pdf": "공보 PDF",
+      "compare": "비교"
+    },
+    "profile": {
+      "birth_date": "생년월일",
+      "education": "학력",
+      "occupation": "경력",
+      "candidate_number": "기호 {{n}}번",
+      "view_pdf": "공약서 PDF 원본",
+      "nec_link": "선관위 원본 링크",
+      "share": "URL 공유"
+    },
+    "pledges": {
+      "key_pledges_title": "핵심 공약",
+      "detailed_pledges_title": "상세 공약",
+      "read_original": "원문 읽기",
+      "disclaimer": "아래 공약 요약은 원문에서 기계적으로 추출·분류한 결과입니다. 평가·해석을 포함하지 않습니다."
+    },
+    "history": {
+      "continued": "유지된 공약",
+      "changed": "바뀐 공약",
+      "dropped": "빠진 공약",
+      "added": "새로 등장한 공약",
+      "before": "이전",
+      "after": "이후"
+    },
+    "vote_count": "득표수",
+    "vote_pct": "득표율"
+  },
+  "common": {
+    "sample_data_notice": "이 페이지는 샘플 데이터로 표시되고 있습니다.",
+    "loading": "불러오는 중…",
+    "no_data": "데이터가 없습니다.",
+    "footer_source": "모든 공약 원문은 중앙선거관리위원회 정책·공약마당(policy.nec.go.kr) 및 공공데이터포털(data.go.kr) 기준입니다.",
+    "footer_disclaimer": "이 서비스는 특정 정당·후보를 지지하거나 반대하지 않습니다.",
+    "translation_notice": "공약 원문은 한국어로 제출되었습니다. 번역은 참고용입니다."
+  },
+  "footer": {
+    "about": "소개",
+    "sources": "데이터 출처",
+    "contact": "개발 문의"
+  },
+  "elections_list": {
+    "subtitle": "총 {{count}}개 선거",
+    "empty": "등록된 선거가 없습니다.",
+    "sub_count": "하위 {{count}}종",
+    "candidate_count": "후보 {{count}}명"
+  },
+  "candidates_list": {
+    "subtitle": "등록된 후보자 검색",
+    "search_button": "검색",
+    "no_results": "\"{{q}}\" 검색 결과가 없습니다.",
+    "has_pledges": "공약 {{n}}건"
+  }
+}

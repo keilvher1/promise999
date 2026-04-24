@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "site_name": "promise999",
+    "tagline": "Korean Election Pledges Archive",
+    "description": "A neutral archive of Korean election pledges, based on official National Election Commission records."
+  },
+  "nav": {
+    "skip_to_content": "Skip to main content",
+    "home": "Home",
+    "elections": "Elections",
+    "candidates": "Candidates",
+    "compare": "Compare Pledges",
+    "terms": "Glossary",
+    "about": "About",
+    "back_to_elections": "Back to elections",
+    "back_to_election": "Back to election",
+    "breadcrumb_separator": "/"
+  },
+  "language_switcher": {
+    "label": "Language",
+    "aria_label": "Select language"
+  },
+  "landing": {
+    "hero_title_1": "Every election pledge,",
+    "hero_title_2": "in one place.",
+    "hero_sub": "A public archive of pledges from Korean elections — past and present — built on official records from the National Election Commission.",
+    "search_placeholder": "Search by candidate, district, or party",
+    "find_my_district": "Find my district by address",
+    "principles_title": "Three principles",
+    "principle_neutral_title": "Neutrality",
+    "principle_neutral_body": "Original pledges, verbatim. AI is used only for summarization and categorization — never interpretation.",
+    "principle_history_title": "History",
+    "principle_history_body": "We surface the same candidate's past pledges, not just the current ones.",
+    "principle_official_title": "Official",
+    "principle_official_body": "Every data point traces back to Korea's National Election Commission.",
+    "recent_title": "Recently added pledges",
+    "featured_cta": "Preview my ballot",
+    "featured_election_label": "Featured election",
+    "candidates_count": "{{count}} candidates",
+    "stat_elections": "Elections",
+    "stat_candidates": "Candidates",
+    "stat_pledges": "Pledge sets",
+    "stat_pledge_items": "Pledge items",
+    "stats_aria": "Archive statistics"
+  },
+  "election": {
+    "voters": "Eligible voters",
+    "candidates_total": "Candidates",
+    "toggle_national": "Nationwide",
+    "toggle_my_region": "My region",
+    "ballot_total_running": "{{count}} candidates total",
+    "view_pledges": "View pledges",
+    "elected": "Elected",
+    "defeated": "Defeated",
+    "withdrew": "Withdrew",
+    "running": "Running",
+    "turnout_at_a_glance": "Election at a glance",
+    "turnout": "Turnout",
+    "seat_changes": "Seat changes (major parties)",
+    "pledge_scan_title": "Pledge snapshots",
+    "ballot_types": {
+      "governor": "Metropolitan Mayor / Governor",
+      "education": "Superintendent of Education",
+      "metro_proportional": "Metro Assembly (Proportional)",
+      "metro_district": "Metro Assembly (District)",
+      "district_head": "City / County / District Head",
+      "basic_district": "Local Council (District)",
+      "basic_proportional": "Local Council (Proportional)"
+    }
+  },
+  "candidate": {
+    "tabs": {
+      "pledges": "Pledges",
+      "history": "History",
+      "pdf": "Bulletin PDF",
+      "compare": "Compare"
+    },
+    "profile": {
+      "birth_date": "Born",
+      "education": "Education",
+      "occupation": "Career",
+      "candidate_number": "No. {{n}}",
+      "view_pdf": "Original pledge PDF",
+      "nec_link": "NEC source",
+      "share": "Share URL"
+    },
+    "pledges": {
+      "key_pledges_title": "Key pledges",
+      "detailed_pledges_title": "All pledges",
+      "read_original": "Read original",
+      "disclaimer": "Summaries below are mechanically extracted and categorized from the original text. They do not contain evaluation or interpretation."
+    },
+    "history": {
+      "continued": "Continued",
+      "changed": "Changed",
+      "dropped": "Dropped",
+      "added": "Newly added",
+      "before": "Before",
+      "after": "After"
+    },
+    "vote_count": "Votes",
+    "vote_pct": "Share"
+  },
+  "common": {
+    "sample_data_notice": "This page is showing sample data.",
+    "loading": "Loading…",
+    "no_data": "No data available.",
+    "footer_source": "All pledge texts come from Korea's National Election Commission (policy.nec.go.kr) and the Public Data Portal (data.go.kr).",
+    "footer_disclaimer": "This service does not endorse or oppose any party or candidate.",
+    "translation_notice": "Original pledges were submitted in Korean. Translations are provided for reference only."
+  },
+  "footer": {
+    "about": "About",
+    "sources": "Data sources",
+    "contact": "Contact"
+  },
+  "elections_list": {
+    "subtitle": "{{count}} elections in the archive",
+    "empty": "No elections in the archive yet.",
+    "sub_count": "{{count}} sub-elections",
+    "candidate_count": "{{count}} candidates"
+  },
+  "candidates_list": {
+    "subtitle": "Search candidates",
+    "search_button": "Search",
+    "no_results": "No results for \"{{q}}\".",
+    "has_pledges": "{{n}} pledges"
+  }
+}
