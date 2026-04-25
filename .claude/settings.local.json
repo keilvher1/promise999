@@ -30,7 +30,9 @@
       "Bash(node -e \"const d = require\\('./lib/i18n/dictionaries/ko.json'\\); for\\(const [k,v] of Object.entries\\(d.forum||{}\\)\\) console.log\\(typeof v, k, '=', JSON.stringify\\(v\\).slice\\(0,80\\)\\)\")",
       "Bash(node -e \"const d = require\\('./lib/i18n/dictionaries/en.json'\\); for\\(const [k,v] of Object.entries\\(d.forum||{}\\)\\) console.log\\(typeof v, k, '=', JSON.stringify\\(v\\).slice\\(0,80\\)\\)\")",
       "Bash(node -e ' *)",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(curl -s -X POST -H \"Content-Type: application/json\" -d '{\"token\":\"p999-admin-token-change-me\"}' --max-time 10 -w \"\\\\nHTTP %{http_code}\\\\n\" \"https://promise999.vercel.app/api/admin/login\")",
+      "Bash(npx --no-install vercel --version)"
     ]
   }
 }

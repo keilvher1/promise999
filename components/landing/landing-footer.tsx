@@ -12,6 +12,7 @@ export function LandingFooter() {
     { label: "FAQ", href: "/faq" },
     { label: "API", href: "/api-docs" },
     { label: t("footer.contact"), href: "/contact" },
+    { label: t("footer.report") || "정정요청", href: "/contact-us" },
   ]
 
   return (

@@ -114,7 +114,8 @@
   "footer": {
     "about": "소개",
     "sources": "데이터 출처",
-    "contact": "개발 문의"
+    "contact": "개발 문의",
+    "report": "정정요청"
   },
   "elections_list": {
     "subtitle": "총 {{count}}개 선거",

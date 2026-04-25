@@ -114,7 +114,8 @@
   "footer": {
     "about": "About",
     "sources": "Data sources",
-    "contact": "Contact"
+    "contact": "Contact",
+    "report": "Report"
   },
   "elections_list": {
     "subtitle": "{{count}} elections in the archive",

@@ -114,7 +114,8 @@
   "footer": {
     "about": "概要",
     "sources": "データソース",
-    "contact": "お問い合わせ"
+    "contact": "お問い合わせ",
+    "report": "訂正依頼"
   },
   "elections_list": {
     "subtitle": "全{{count}}件の選挙",

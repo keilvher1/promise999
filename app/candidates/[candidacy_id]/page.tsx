@@ -4,6 +4,7 @@ import { sampleCandidate } from "@/lib/candidate-data"
 import { getCandidateById } from "@/lib/queries"
 import { ProfileBlock } from "@/components/candidate/profile-block"
 import { CandidateDetailTabs } from "@/components/candidate/detail-tabs"
+import { CorrectionForm } from "@/components/correction-form"
 
 interface CandidatePageProps {
   params: Promise<{
@@ -81,6 +82,22 @@ export default async function CandidatePage({ params }: CandidatePageProps) {
 
         {/* Tabs */}
         <CandidateDetailTabs candidate={candidate} />
+
+        {/* 정정요청 / 문의 */}
+        <div className="mt-12 pt-6 border-t border-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <p className="text-xs font-serif text-muted-foreground leading-relaxed">
+            이 후보 또는 공약 정보에 잘못된 부분이 있나요? 출처와 함께 알려주시면 검토 후 반영합니다.
+          </p>
+          {source === "neon" && Number.isFinite(Number(candidacy_id)) ? (
+            <CorrectionForm
+              targetKind="candidacy"
+              targetId={Number(candidacy_id)}
+              contextLabel={`${candidate.name} 후보 · ${candidate.electionName}`}
+            />
+          ) : (
+            <CorrectionForm targetKind="general" contextLabel="이 페이지에 대한 정정요청" />
+          )}
+        </div>
       </main>
 
       {/* Sticky footer note */}

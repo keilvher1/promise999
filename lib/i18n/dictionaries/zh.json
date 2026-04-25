@@ -114,7 +114,8 @@
   "footer": {
     "about": "关于",
     "sources": "数据来源",
-    "contact": "联系我们"
+    "contact": "联系我们",
+    "report": "勘误"
   },
   "elections_list": {
     "subtitle": "共 {{count}} 次选举",

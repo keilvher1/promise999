@@ -21,7 +21,7 @@ export default async function AdminDashboardPage() {
   if (!(await isAdmin())) redirect("/admin/login")
 
   // KPI들 — 빠른 COUNT()
-  const [coreCounts, forum, likes, search, jobs] = await Promise.all([
+  const [coreCounts, forum, likes, search, jobs, corrections] = await Promise.all([
     sql`
       SELECT
         (SELECT COUNT(*) FROM elections)::int        AS elections,
@@ -55,6 +55,12 @@ export default async function AdminDashboardPage() {
        ORDER BY id DESC
        LIMIT 8
     ` as Promise<any[]>,
+    sql`
+      SELECT
+        (SELECT COUNT(*) FROM corrections)::int                          AS total,
+        (SELECT COUNT(*) FROM corrections WHERE status='open')::int      AS open,
+        (SELECT COUNT(*) FROM corrections WHERE status='investigating')::int AS investigating
+    ` as Promise<any[]>,
   ])
 
   const c = coreCounts[0] ?? {}
@@ -76,6 +82,9 @@ export default async function AdminDashboardPage() {
     { label: "공약 좋아요", value: likes[0]?.total ?? 0 },
     { label: "검색 (전체)", value: s.total ?? 0 },
     { label: "검색 (24h)", value: s.last_24h ?? 0 },
+    { label: "정정요청 (미처리)", value: corrections[0]?.open ?? 0, href: "/admin/corrections?status=open" },
+    { label: "정정요청 (조사중)", value: corrections[0]?.investigating ?? 0, href: "/admin/corrections?status=investigating" },
+    { label: "정정요청 (전체)", value: corrections[0]?.total ?? 0, href: "/admin/corrections?status=all" },
   ]
 
   // 최근 검색어 TOP 10
@@ -104,6 +113,7 @@ export default async function AdminDashboardPage() {
           </div>
           <div className="flex items-center gap-3 text-sm font-mono">
             <Link href="/admin/forum" className="text-muted-foreground hover:text-foreground">forum</Link>
+            <Link href="/admin/corrections" className="text-muted-foreground hover:text-foreground">corrections</Link>
             <Link href="/" className="text-muted-foreground hover:text-foreground">site →</Link>
             <LogoutButton />
           </div>
