@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { PledgeLikeButton } from "@/components/pledge-like-button"
 import type { CandidateDetail, Pledge } from "@/lib/candidate-data"
 
 interface PledgesTabProps {
@@ -31,14 +32,20 @@ function PledgeCard({ pledge }: { pledge: Pledge }) {
       <p className="text-sm font-serif text-muted-foreground leading-relaxed line-clamp-3">
         {pledge.summary}
       </p>
-      <Link
-        href={`/pledges/${pledge.id}`}
-        className="inline-flex items-center gap-1 text-sm font-sans text-foreground hover:underline mt-1 self-start"
-        aria-label={`${pledge.title} 원문 읽기`}
-      >
-        원문 읽기
-        <ArrowRight className="w-3 h-3" strokeWidth={1} />
-      </Link>
+      <div className="flex items-center justify-between gap-2 mt-1">
+        <Link
+          href={`/pledges/${pledge.id}`}
+          className="inline-flex items-center gap-1 text-sm font-sans text-foreground hover:underline self-start"
+          aria-label={`${pledge.title} 원문 읽기`}
+        >
+          원문 읽기
+          <ArrowRight className="w-3 h-3" strokeWidth={1} />
+        </Link>
+        <PledgeLikeButton
+          pledgeItemId={pledge.id}
+          ariaLabel={`${pledge.title} 좋아요`}
+        />
+      </div>
     </article>
   )
 }
@@ -55,13 +62,19 @@ function DetailedPledgeItem({ pledge }: { pledge: Pledge }) {
             {pledge.summary}
           </p>
         </div>
-        <Link
-          href={`/pledges/${pledge.id}`}
-          className="text-xs font-mono text-muted-foreground hover:text-foreground hover:underline whitespace-nowrap"
-          aria-label={`${pledge.title} 원문 읽기`}
-        >
-          원문
-        </Link>
+        <div className="flex items-center gap-2 whitespace-nowrap">
+          <PledgeLikeButton
+            pledgeItemId={pledge.id}
+            ariaLabel={`${pledge.title} 좋아요`}
+          />
+          <Link
+            href={`/pledges/${pledge.id}`}
+            className="text-xs font-mono text-muted-foreground hover:text-foreground hover:underline"
+            aria-label={`${pledge.title} 원문 읽기`}
+          >
+            원문
+          </Link>
+        </div>
       </div>
     </div>
   )

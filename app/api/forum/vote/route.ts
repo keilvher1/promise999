@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import { sql } from "@/lib/db"
 import { clientFromHeaders, makeAuthorHash } from "@/lib/forum"
 
-export const runtime = "edge"
+export const runtime = "nodejs"
 
 /** POST /api/forum/vote  body: { thread_id?|reply_id?, vote: 1|-1 } */
 export async function POST(req: Request) {

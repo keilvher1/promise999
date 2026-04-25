@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 import { sql } from "@/lib/db"
 
-export const runtime = "edge"
+export const runtime = "nodejs"
 
 /** GET /api/forum/threads/[id] — 단일 글 + 댓글 트리 */
 export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {

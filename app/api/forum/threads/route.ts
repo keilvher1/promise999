@@ -9,7 +9,7 @@ import {
   makeAuthorHash,
 } from "@/lib/forum"
 
-export const runtime = "edge"
+export const runtime = "nodejs"
 
 /** GET /api/forum/threads?target_kind=...&target_id=...&limit=20&offset=0 */
 export async function GET(req: Request) {

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import { sql } from "@/lib/db"
 import { clientFromHeaders, makeAuthorHash } from "@/lib/forum"
 
-export const runtime = "edge"
+export const runtime = "nodejs"
 
 const REASONS = ["spam","abuse","offtopic","illegal","disinfo","other"] as const
 

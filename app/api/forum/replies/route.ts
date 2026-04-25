@@ -4,7 +4,7 @@ import {
   clientFromHeaders, generateNick, looksAbusive, makeAuthorHash,
 } from "@/lib/forum"
 
-export const runtime = "edge"
+export const runtime = "nodejs"
 
 /** POST /api/forum/replies  body: { thread_id, parent_id?, body } */
 export async function POST(req: Request) {
