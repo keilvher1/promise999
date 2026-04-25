@@ -136,6 +136,9 @@
     "submit": "投稿",
     "no_threads": "まだ投稿がありません。最初の投稿をしてみましょう。",
     "replies": "コメント",
-    "just_now": "たった今"
+    "just_now": "たった今",
+    "minutes_ago": "{n}分前",
+    "hours_ago": "{n}時間前",
+    "days_ago": "{n}日前"
   }
 }

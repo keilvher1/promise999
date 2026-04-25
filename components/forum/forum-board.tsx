@@ -8,7 +8,7 @@ import type { ForumTargetKind, ForumThread } from "@/lib/forum"
 interface Props {
   targetKind: ForumTargetKind
   targetId?: number | null
-  /** 페이지에서 받은 라벨(번역됨) */
+  /** 페이지에서 받은 라벨(번역됨) — 함수 콜백 금지(Server→Client 전달 불가) */
   labels: {
     title: string
     subtitle: string
@@ -18,9 +18,10 @@ interface Props {
     submit: string
     no_threads: string
     replies: string
-    minutes_ago: (n: number) => string
-    hours_ago: (n: number) => string
-    days_ago: (n: number) => string
+    /** "{n}분 전" 형식 — {n} 토큰을 숫자로 치환 */
+    minutes_ago: string
+    hours_ago: string
+    days_ago: string
     just_now: string
   }
 }
@@ -165,8 +166,8 @@ function timeAgo(iso: string, labels: Props["labels"]): string {
   const diff = Date.now() - t
   if (diff < 60_000) return labels.just_now
   const min = Math.floor(diff / 60_000)
-  if (min < 60) return labels.minutes_ago(min)
+  if (min < 60) return labels.minutes_ago.replace("{n}", String(min))
   const hrs = Math.floor(min / 60)
-  if (hrs < 24) return labels.hours_ago(hrs)
-  return labels.days_ago(Math.floor(hrs / 24))
+  if (hrs < 24) return labels.hours_ago.replace("{n}", String(hrs))
+  return labels.days_ago.replace("{n}", String(Math.floor(hrs / 24)))
 }

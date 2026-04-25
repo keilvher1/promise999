@@ -136,6 +136,9 @@
     "submit": "작성",
     "no_threads": "아직 글이 없습니다. 첫 번째 글을 작성해보세요.",
     "replies": "댓글",
-    "just_now": "방금"
+    "just_now": "방금",
+    "minutes_ago": "{n}분 전",
+    "hours_ago": "{n}시간 전",
+    "days_ago": "{n}일 전"
   }
 }

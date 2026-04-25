@@ -23,9 +23,9 @@ export default async function ForumPage() {
     no_threads: fl.no_threads ?? "아직 글이 없습니다. 첫 번째 글을 작성해보세요.",
     replies: fl.replies ?? "댓글",
     just_now: fl.just_now ?? "방금",
-    minutes_ago: (n: number) => `${n}분 전`,
-    hours_ago: (n: number) => `${n}시간 전`,
-    days_ago: (n: number) => `${n}일 전`,
+    minutes_ago: fl.minutes_ago ?? "{n}분 전",
+    hours_ago: fl.hours_ago ?? "{n}시간 전",
+    days_ago: fl.days_ago ?? "{n}일 전",
   }
 
   return (

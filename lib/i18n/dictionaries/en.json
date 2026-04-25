@@ -136,6 +136,9 @@
     "submit": "Post",
     "no_threads": "No threads yet. Be the first to post.",
     "replies": "replies",
-    "just_now": "just now"
+    "just_now": "just now",
+    "minutes_ago": "{n}m ago",
+    "hours_ago": "{n}h ago",
+    "days_ago": "{n}d ago"
   }
 }
