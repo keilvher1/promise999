@@ -18,6 +18,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import sys
 from datetime import datetime
@@ -74,12 +75,18 @@ def main():
 
         print(f"  대상 후보 {len(rows)}명")
 
+        params_json = json.dumps({
+            "limit": args.limit,
+            "sg_id": args.sg_id,
+            "typecode": args.typecode,
+            "skip_existing": args.skip_existing,
+        })
         with con.cursor() as cur:
             cur.execute(
                 """INSERT INTO crawl_jobs(source, endpoint, params, status, started_at)
                    VALUES ('policy.nec.go.kr', 'nec_pdf_crawl', %s::jsonb, 'running', NOW())
                    RETURNING id""",
-                (f'{{"limit":{args.limit},"sg_id":"{args.sg_id or ""}","typecode":{args.typecode}}}',),
+                (params_json,),
             )
             job_id = cur.fetchone()["id"]
         con.commit()
