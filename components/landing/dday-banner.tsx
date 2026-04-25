@@ -24,13 +24,25 @@ interface Props {
   }
 }
 
+/** KST 자정 기준으로 캘린더 일수 차이를 반환. 한국 D-Day 관례:
+ *  - 선거일 = D-DAY = 0, 전날 = D-1, 39일 전 = D-39.
+ *  같은 자정 기준으로 round(date diff / 86400000) — 시간대 무관. */
+function calendarDaysKst(target: Date): number {
+  const tz = "Asia/Seoul"
+  const todayKst = new Date(new Date().toLocaleString("en-US", { timeZone: tz }))
+  todayKst.setHours(0, 0, 0, 0)
+  const targetKst = new Date(target.toLocaleString("en-US", { timeZone: tz }))
+  targetKst.setHours(0, 0, 0, 0)
+  return Math.round((targetKst.getTime() - todayKst.getTime()) / 86400000)
+}
+
 function diff(target: Date) {
   const now = new Date()
   const ms = target.getTime() - now.getTime()
   const sec = Math.max(0, Math.floor(ms / 1000))
   return {
     total: ms,
-    days: Math.floor(sec / 86400),
+    days: calendarDaysKst(target), // 캘린더 기준 (시계 시간 무관)
     hours: Math.floor((sec % 86400) / 3600),
     minutes: Math.floor((sec % 3600) / 60),
     seconds: sec % 60,
