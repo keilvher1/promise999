@@ -33,7 +33,9 @@
       "Bash(git check-ignore *)",
       "Bash(curl -s -X POST -H \"Content-Type: application/json\" -d '{\"token\":\"p999-admin-token-change-me\"}' --max-time 10 -w \"\\\\nHTTP %{http_code}\\\\n\" \"https://promise999.vercel.app/api/admin/login\")",
       "Bash(npx --no-install vercel --version)",
-      "Bash(bash *)"
+      "Bash(bash *)",
+      "Bash(curl -s -o /dev/null --max-time 10 -w '%{http_code}' 'https://promise999.vercel.app/api/search/suggest?q=%EC%95%88%EC%B2%A0%EC%88%98')",
+      "Read(//Users/mac/StudioProjects/promise999/=== /api/search/**)"
     ]
   }
 }
