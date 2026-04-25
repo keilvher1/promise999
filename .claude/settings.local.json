@@ -32,7 +32,8 @@
       "Bash(node -e ' *)",
       "Bash(git check-ignore *)",
       "Bash(curl -s -X POST -H \"Content-Type: application/json\" -d '{\"token\":\"p999-admin-token-change-me\"}' --max-time 10 -w \"\\\\nHTTP %{http_code}\\\\n\" \"https://promise999.vercel.app/api/admin/login\")",
-      "Bash(npx --no-install vercel --version)"
+      "Bash(npx --no-install vercel --version)",
+      "Bash(bash *)"
     ]
   }
 }

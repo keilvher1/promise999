@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { useState } from "react"
+import { ArrowRight, ChevronDown, ChevronUp } from "lucide-react"
 import {
   Accordion,
   AccordionContent,
@@ -15,7 +16,14 @@ interface PledgesTabProps {
   candidate: CandidateDetail
 }
 
+function hasFullText(p: Pledge) {
+  return !!p.fullText && p.fullText.trim().length > (p.summary?.length ?? 0)
+}
+
 function PledgeCard({ pledge }: { pledge: Pledge }) {
+  const [open, setOpen] = useState(false)
+  const expandable = hasFullText(pledge)
+
   return (
     <article className="border border-border p-4 flex flex-col gap-2">
       <div className="flex items-start justify-between gap-4">
@@ -29,18 +37,37 @@ function PledgeCard({ pledge }: { pledge: Pledge }) {
       <h4 className="font-sans font-medium tracking-tight text-base">
         {pledge.title}
       </h4>
-      <p className="text-sm font-serif text-muted-foreground leading-relaxed line-clamp-3">
-        {pledge.summary}
-      </p>
+      {open && expandable ? (
+        <pre className="text-sm font-serif text-foreground leading-relaxed whitespace-pre-wrap break-words bg-muted/30 p-3 border border-border">
+          {pledge.fullText}
+        </pre>
+      ) : (
+        <p className="text-sm font-serif text-muted-foreground leading-relaxed line-clamp-3">
+          {pledge.summary}
+        </p>
+      )}
       <div className="flex items-center justify-between gap-2 mt-1">
-        <Link
-          href={`/pledges/${pledge.id}`}
-          className="inline-flex items-center gap-1 text-sm font-sans text-foreground hover:underline self-start"
-          aria-label={`${pledge.title} 원문 읽기`}
-        >
-          원문 읽기
-          <ArrowRight className="w-3 h-3" strokeWidth={1} />
-        </Link>
+        {expandable ? (
+          <button
+            type="button"
+            onClick={() => setOpen(o => !o)}
+            className="inline-flex items-center gap-1 text-sm font-sans text-foreground hover:underline self-start"
+            aria-expanded={open}
+          >
+            {open ? (
+              <>접기 <ChevronUp className="w-3 h-3" strokeWidth={1.5} /></>
+            ) : (
+              <>전체 보기 <ChevronDown className="w-3 h-3" strokeWidth={1.5} /></>
+            )}
+          </button>
+        ) : (
+          <Link
+            href={`/pledges/${pledge.id}`}
+            className="inline-flex items-center gap-1 text-sm font-sans text-foreground hover:underline self-start"
+          >
+            원문 <ArrowRight className="w-3 h-3" strokeWidth={1} />
+          </Link>
+        )}
         <PledgeLikeButton
           pledgeItemId={pledge.id}
           ariaLabel={`${pledge.title} 좋아요`}
@@ -51,29 +78,40 @@ function PledgeCard({ pledge }: { pledge: Pledge }) {
 }
 
 function DetailedPledgeItem({ pledge }: { pledge: Pledge }) {
+  const [open, setOpen] = useState(false)
+  const expandable = hasFullText(pledge)
   return (
     <div className="py-3 border-b border-border last:border-b-0">
       <div className="flex items-start justify-between gap-4">
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           <h5 className="font-sans font-medium text-sm tracking-tight">
             {pledge.title}
           </h5>
-          <p className="text-sm font-serif text-muted-foreground leading-relaxed mt-1">
-            {pledge.summary}
-          </p>
+          {open && expandable ? (
+            <pre className="text-sm font-serif text-foreground leading-relaxed whitespace-pre-wrap break-words mt-2 bg-muted/30 p-3 border border-border">
+              {pledge.fullText}
+            </pre>
+          ) : (
+            <p className="text-sm font-serif text-muted-foreground leading-relaxed mt-1 line-clamp-2">
+              {pledge.summary}
+            </p>
+          )}
         </div>
         <div className="flex items-center gap-2 whitespace-nowrap">
           <PledgeLikeButton
             pledgeItemId={pledge.id}
             ariaLabel={`${pledge.title} 좋아요`}
           />
-          <Link
-            href={`/pledges/${pledge.id}`}
-            className="text-xs font-mono text-muted-foreground hover:text-foreground hover:underline"
-            aria-label={`${pledge.title} 원문 읽기`}
-          >
-            원문
-          </Link>
+          {expandable && (
+            <button
+              type="button"
+              onClick={() => setOpen(o => !o)}
+              className="text-xs font-mono text-muted-foreground hover:text-foreground border border-border px-2 py-0.5"
+              aria-expanded={open}
+            >
+              {open ? "접기" : "전체"}
+            </button>
+          )}
         </div>
       </div>
     </div>
