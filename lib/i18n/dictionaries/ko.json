@@ -142,5 +142,14 @@
     "minutes_ago": "{n}분 전",
     "hours_ago": "{n}시간 전",
     "days_ago": "{n}일 전"
+  },
+  "dday": {
+    "until": "다가오는 선거",
+    "today": "D-DAY",
+    "days": "일",
+    "hours": "시간",
+    "minutes": "분",
+    "seconds": "초",
+    "cta": "이 선거 보기"
   }
 }

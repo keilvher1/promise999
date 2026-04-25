@@ -142,5 +142,14 @@
     "minutes_ago": "{n}分钟前",
     "hours_ago": "{n}小时前",
     "days_ago": "{n}天前"
+  },
+  "dday": {
+    "until": "即将到来的选举",
+    "today": "投票日",
+    "days": "天",
+    "hours": "时",
+    "minutes": "分",
+    "seconds": "秒",
+    "cta": "查看"
   }
 }

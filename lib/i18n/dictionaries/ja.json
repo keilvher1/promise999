@@ -142,5 +142,14 @@
     "minutes_ago": "{n}分前",
     "hours_ago": "{n}時間前",
     "days_ago": "{n}日前"
+  },
+  "dday": {
+    "until": "次回の選挙",
+    "today": "投票日",
+    "days": "日",
+    "hours": "時間",
+    "minutes": "分",
+    "seconds": "秒",
+    "cta": "詳細"
   }
 }

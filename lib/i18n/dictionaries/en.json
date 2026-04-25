@@ -142,5 +142,14 @@
     "minutes_ago": "{n}m ago",
     "hours_ago": "{n}h ago",
     "days_ago": "{n}d ago"
+  },
+  "dday": {
+    "until": "Upcoming election",
+    "today": "Today",
+    "days": "d",
+    "hours": "h",
+    "minutes": "m",
+    "seconds": "s",
+    "cta": "View"
   }
 }

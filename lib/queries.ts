@@ -443,3 +443,23 @@ export async function getArchiveCounts(): Promise<{
   `) as any[]
   return rows[0]
 }
+
+/**
+ * 가장 가까운 미래 선거. 메인페이지 D-Day 배너용.
+ * 오늘 이후(또는 당일)의 가장 가까운 election 1건. 없으면 null.
+ */
+export async function getNextElection(): Promise<{
+  sg_id: string
+  name: string
+  election_date: string
+  kind: string
+} | null> {
+  const rows = (await sql`
+    SELECT sg_id, name, election_date::text AS election_date, kind
+      FROM elections
+     WHERE election_date >= CURRENT_DATE
+     ORDER BY election_date ASC
+     LIMIT 1
+  `) as { sg_id: string; name: string; election_date: string; kind: string }[]
+  return rows[0] ?? null
+}
