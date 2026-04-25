@@ -55,7 +55,12 @@ export function HeroSection() {
 
           {/* Right: Search */}
           <BlurFade delay={0.4} inView direction="right" className="flex-1 max-w-md w-full">
-            <div className="relative group">
+            <form
+              action="/candidates"
+              method="GET"
+              role="search"
+              className="relative group"
+            >
               <label htmlFor="hero-search" className="sr-only">
                 {t("landing.search_placeholder")}
               </label>
@@ -66,12 +71,17 @@ export function HeroSection() {
               />
               <Input
                 id="hero-search"
+                name="q"
                 type="search"
                 placeholder={t("landing.search_placeholder")}
                 className="pl-12 pr-4 py-6 text-base bg-secondary border border-border rounded-sm focus:ring-1 focus:ring-foreground focus:border-foreground transition-all duration-300 hover:border-foreground/50"
                 aria-label={t("landing.search_placeholder")}
+                enterKeyHint="search"
               />
-            </div>
+              <button type="submit" className="sr-only">
+                {t("candidates_list.search_button")}
+              </button>
+            </form>
             <Link
               href="/find-district"
               className="inline-block mt-3 text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
