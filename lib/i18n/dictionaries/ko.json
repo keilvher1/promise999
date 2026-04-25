@@ -42,7 +42,8 @@
     "stat_candidates": "후보자",
     "stat_pledges": "공약 묶음",
     "stat_pledge_items": "공약 항목",
-    "stats_aria": "아카이브 통계"
+    "stats_aria": "아카이브 통계",
+    "trending_searches": "실시간 검색어"
   },
   "election": {
     "voters": "선거인",

@@ -42,7 +42,8 @@
     "stat_candidates": "Candidates",
     "stat_pledges": "Pledge sets",
     "stat_pledge_items": "Pledge items",
-    "stats_aria": "Archive statistics"
+    "stats_aria": "Archive statistics",
+    "trending_searches": "Trending searches"
   },
   "election": {
     "voters": "Eligible voters",

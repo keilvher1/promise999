@@ -42,7 +42,8 @@
     "stat_candidates": "候选人",
     "stat_pledges": "公约组",
     "stat_pledge_items": "公约条目",
-    "stats_aria": "档案统计"
+    "stats_aria": "档案统计",
+    "trending_searches": "热门搜索"
   },
   "election": {
     "voters": "选举人",

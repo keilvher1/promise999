@@ -1,12 +1,11 @@
 "use client"
 
-import { Search } from "lucide-react"
-import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import { TextAnimate } from "@/components/ui/text-animate"
 import { BlurFade } from "@/components/ui/blur-fade"
 import { WordRotate } from "@/components/ui/word-rotate"
 import { useI18n } from "@/lib/i18n/context"
+import { HeroSearch } from "@/components/landing/hero-search"
 
 export function HeroSection() {
   const { t, locale } = useI18n()
@@ -53,35 +52,14 @@ export function HeroSection() {
             </BlurFade>
           </div>
 
-          {/* Right: Search */}
+          {/* Right: Search with autocomplete + trending */}
           <BlurFade delay={0.4} inView direction="right" className="flex-1 max-w-md w-full">
-            <form
-              action="/candidates"
-              method="GET"
-              role="search"
-              className="relative group"
-            >
-              <label htmlFor="hero-search" className="sr-only">
-                {t("landing.search_placeholder")}
-              </label>
-              <Search
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground transition-colors group-focus-within:text-foreground"
-                strokeWidth={1}
-                aria-hidden="true"
-              />
-              <Input
-                id="hero-search"
-                name="q"
-                type="search"
-                placeholder={t("landing.search_placeholder")}
-                className="pl-12 pr-4 py-6 text-base bg-secondary border border-border rounded-sm focus:ring-1 focus:ring-foreground focus:border-foreground transition-all duration-300 hover:border-foreground/50"
-                aria-label={t("landing.search_placeholder")}
-                enterKeyHint="search"
-              />
-              <button type="submit" className="sr-only">
-                {t("candidates_list.search_button")}
-              </button>
-            </form>
+            <HeroSearch
+              placeholder={t("landing.search_placeholder")}
+              ariaLabel={t("landing.search_placeholder")}
+              trendingTitle={t("landing.trending_searches") || "실시간 검색어"}
+              searchButton={t("candidates_list.search_button")}
+            />
             <Link
               href="/find-district"
               className="inline-block mt-3 text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"

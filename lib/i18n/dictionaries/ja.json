@@ -42,7 +42,8 @@
     "stat_candidates": "候補者",
     "stat_pledges": "公約セット",
     "stat_pledge_items": "公約項目",
-    "stats_aria": "アーカイブ統計"
+    "stats_aria": "アーカイブ統計",
+    "trending_searches": "リアルタイム検索"
   },
   "election": {
     "voters": "選挙人",

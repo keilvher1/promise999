@@ -8,7 +8,29 @@
       "Bash(git remote *)",
       "Bash(git push *)",
       "Bash(git fetch *)",
-      "Bash(git ls-tree *)"
+      "Bash(git ls-tree *)",
+      "Bash(python3 crawler/scripts/crawl_2022_nationwide.py --help)",
+      "Bash(pip3 install *)",
+      "Bash(python3 *)",
+      "Bash(chmod +x /tmp/promise999_crawl_all.sh)",
+      "Bash(git stash *)",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(git --version)",
+      "Bash(git config *)",
+      "Bash(GIT_TRACE=1 git stash push --include-untracked -m \"test\")",
+      "Bash(git reset *)",
+      "mcp__claude_ai_Vercel__list_teams",
+      "mcp__claude_ai_Vercel__list_projects",
+      "mcp__claude_ai_Vercel__list_deployments",
+      "Bash(curl -sI -o /dev/null --max-time 10 -w \"%{http_code}\\\\n\" https://promise999.vercel.app/forum)",
+      "Bash(bash -c ' *)",
+      "Bash(curl -s --max-time 10 \"https://promise999.vercel.app/api/forum/threads?target_kind=global\")",
+      "Bash(curl -s --max-time 10 \"https://promise999.vercel.app/forum\")",
+      "mcp__claude_ai_Vercel__get_runtime_logs",
+      "Bash(node -e \"const d = require\\('./lib/i18n/dictionaries/ko.json'\\); for\\(const [k,v] of Object.entries\\(d.forum||{}\\)\\) console.log\\(typeof v, k, '=', JSON.stringify\\(v\\).slice\\(0,80\\)\\)\")",
+      "Bash(node -e \"const d = require\\('./lib/i18n/dictionaries/en.json'\\); for\\(const [k,v] of Object.entries\\(d.forum||{}\\)\\) console.log\\(typeof v, k, '=', JSON.stringify\\(v\\).slice\\(0,80\\)\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(git check-ignore *)"
     ]
   }
 }

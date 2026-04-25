@@ -1,11 +1,15 @@
+import { headers } from "next/headers"
 import Link from "next/link"
 import { LandingHeader } from "@/components/landing/landing-header"
 import { LandingFooter } from "@/components/landing/landing-footer"
 import { listCandidacies } from "@/lib/queries"
 import { getLocaleAndDict } from "@/lib/i18n/server"
 import { translate } from "@/lib/i18n/dictionaries"
+import { sql } from "@/lib/db"
+import { ipFromHeaders, makeVoterHash } from "@/lib/likes"
 
-export const revalidate = 300
+// 검색 결과는 q 파라미터에 의존하므로 캐시하지 않음
+export const dynamic = "force-dynamic"
 
 interface PageProps {
   searchParams: Promise<{ q?: string }>
@@ -31,6 +35,23 @@ export default async function CandidatesListPage({ searchParams }: PageProps) {
     rows = await listCandidacies({ q, limit: 50 })
   } catch (err) {
     console.error("[candidates list] Neon 조회 실패:", err)
+  }
+
+  // 검색어 로그 기록 (실시간/연관 검색어 집계용). 실패해도 페이지는 정상.
+  const trimmed = q.trim()
+  if (trimmed.length >= 1 && trimmed.length <= 200) {
+    try {
+      const h = await headers()
+      const ip = ipFromHeaders(h)
+      const voter = makeVoterHash(ip)
+      const norm = trimmed.toLowerCase()
+      await sql`
+        INSERT INTO search_log(query, query_norm, voter_hash, result_count)
+        VALUES (${trimmed}, ${norm}, ${voter}, ${rows.length})
+      `
+    } catch (err) {
+      console.error("[search_log] insert 실패:", err)
+    }
   }
 
   return (
